@@ -1,5 +1,8 @@
 package common;
 
+import lombok.Getter;
+
+@Getter
 public class CommonStructure {
 
     private final String ADD_TO_CART_BUTTON = "[ADD TO CART]";
