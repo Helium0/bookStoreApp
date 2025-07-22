@@ -8,8 +8,8 @@ import lombok.Data;
 public class StripeCard {
 
 
-    private final String CARD_NAME;
-    private final int CARD_NUMBER;
-    private final String EXP_DATE;
-    private final int CVV;
+    private  String CARD_NAME;
+    private  String CARD_NUMBER;
+    private  String EXP_DATE;
+    private  String CVV;
 }
