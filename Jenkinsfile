@@ -10,7 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests from TestRunner'
-                bat 'dir src\\test\\java\\runners\\TestRunner'
+                bat 'dir src\\test\\java\\runners\\TestRunner.java'
                 bat 'mvn test -Dtest=runners.TestRunner'
             }
         }
