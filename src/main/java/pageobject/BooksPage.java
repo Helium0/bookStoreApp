@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class BooksPage extends MainPage {
+public class BooksPage {
 
     private static AppStructureNames names = new AppStructureNames();
     private static CommonStructure commonStructure = new CommonStructure();
