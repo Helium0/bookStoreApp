@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pageobject.BooksPage;
 
-import static org.testng.Assert.*;
+import static org.junit.Assert.*;
 
 public class BooksPageSteps {
 
@@ -20,6 +20,6 @@ public class BooksPageSteps {
     @Then("User search {} book and add to cart")
     public void userSearchBookAndAddToCart(String bookTitle) {
         logger.info("Searching book title: "+ bookTitle);
-        assertTrue(booksPage.userSearchBookAndAddToCart(bookTitle).exists(), "This book title doesn`t exist");
+        assertTrue("This book title doesn`t exist", booksPage.userSearchBookAndAddToCart(bookTitle).exists());
     }
 }

@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pageobject.CartPage;
-import static org.testng.Assert.*;
+import static org.junit.Assert.*;
 
 public class CartPageSteps {
 
@@ -19,7 +19,7 @@ public class CartPageSteps {
     @And("User checks how many books in cart: {int}")
     public void userChecksHowManyBooksInCart(int itemNumber) {
         logger.info("User checks how many books in cart");
-        assertEquals(cartPage.checkItemsInCart(), itemNumber, "Different quantity in cart");
+        assertEquals("Different quantity in cart", cartPage.checkItemsInCart(), itemNumber);
     }
 
     @And("User go to checkout")

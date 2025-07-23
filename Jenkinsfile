@@ -16,7 +16,7 @@ pipeline {
     }
     post {
         always {
-            testNG 'target\\surefire-reports\\testng-results.xml'
+            junit 'target\\surefire-reports\\junitreports\\TEST-runners.TestRunner.xml'
         }
     }
 }

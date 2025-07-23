@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pageobject.MainPage;
 
-import static org.testng.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 public class MainPageSteps {
 
@@ -18,6 +18,6 @@ public class MainPageSteps {
     @Given("User checks if logged on correct website")
     public void open() {
         logger.info("Checking website title");
-        assertTrue(mainPage.verifyAppTextName(), "Website name is different");
+        assertTrue("Website name is different", mainPage.verifyAppTextName());
     }
 }
