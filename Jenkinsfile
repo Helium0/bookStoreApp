@@ -14,4 +14,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            testng 'target\\surefire-reports\\testng-results.xml'
+        }
+    }
 }
