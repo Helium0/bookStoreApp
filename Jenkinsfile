@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Hello World'
+                echo 'Hello from build stage'
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests from TestRunner'
-                bat 'ls src/test/java/runners/TestRunner.class'
+                bat 'dir src\\test\\java\\runners\\TestRunner.class'
                 bat 'mvn test -Dtest=runners.TestRunner'
             }
         }
