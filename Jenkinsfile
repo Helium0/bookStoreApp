@@ -17,6 +17,10 @@ pipeline {
     post {
         always {
             junit 'target\\surefire-reports\\junitreports\\TEST-runners.TestRunner.xml'
+            allure includeProperties:
+                                 false,
+                                 jdk: '',
+                                 results: [[path: 'build/allure-results']]
         }
     }
 }
