@@ -7,9 +7,8 @@ import lombok.Data;
 @Data
 public class StripeCard {
 
-
-    private  String CARD_NAME;
-    private  String CARD_NUMBER;
-    private  String EXP_DATE;
-    private  String CVV;
+    private String card_name;
+    private String card_number;
+    private String exp_date;
+    private String cvv;
 }
