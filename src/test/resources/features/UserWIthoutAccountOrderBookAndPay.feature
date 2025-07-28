@@ -12,6 +12,7 @@ Feature: User adds book and pay with card
     And User sets state Ica
     And User wants to pay with Mastercard and fills card details and place order
     Then User successfully placed order
+    And Checks order in DB
 
 
 
