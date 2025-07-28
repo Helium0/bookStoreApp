@@ -2,7 +2,6 @@ package dao;
 
 import lombok.AllArgsConstructor;
 import utils.StripeCard;
-
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,18 +15,17 @@ public class CardDAO implements StripeCardDAO {
 
     @Override
     public List<StripeCard> getAll() {
-        String allCardsSQLCommand = "SELECT * FROM cards";
+        String allCardsSQLCommand = "SELECT * FROM wp_stripe_cards";
         List<StripeCard> cards = new ArrayList<>();
-        try {
-            Connection connection = dataSource.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(allCardsSQLCommand);
+        try (Connection connection = dataSource.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(allCardsSQLCommand)) {
             while (resultSet.next()) {
                 StripeCard stripeCard = StripeCard.builder()
-                        .CARD_NAME(resultSet.getString("cardName"))
-                        .CARD_NUMBER(resultSet.getString("cardNumbers"))
-                        .EXP_DATE(resultSet.getString("expiryDate"))
-                        .CVV(resultSet.getString("cvv"))
+                        .card_name(resultSet.getString("cardName"))
+                        .card_number(resultSet.getString("cardNumber"))
+                        .exp_date(resultSet.getString("expiryDate"))
+                        .cvv(resultSet.getString("cvv"))
                         .build();
                 cards.add(stripeCard);
             }
