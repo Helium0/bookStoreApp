@@ -10,7 +10,8 @@ Feature: User adds book and pay with card
     And User sets contact details: 666666666 patrykTest@gmail.com
     And User sets country Peru
     And User sets state Ica
-    And User wants to pay with Mastercard and fills card details and place order
+    And User wants to pay with Mastercard
+    And User fills card details and place order
     Then User successfully placed order
     And Checks order in DB
 
