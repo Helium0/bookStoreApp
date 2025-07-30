@@ -16,8 +16,6 @@ public class CheckoutCardPageSteps {
     public void card(String userCard) {
         logger.info("User pays with: " + userCard);
         checkoutPage.chooseCard(userCard);
-        checkoutPage.fillCardDetails();
-        checkoutPage.placeOrderButtonClick();
     }
 
     @And("User fills card details and place order")
