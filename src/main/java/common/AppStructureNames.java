@@ -15,5 +15,6 @@ public class AppStructureNames {
     private final String USER_BILLING_DETAILS = USER + " [BILLING-DETAILS]";
     private final String ORDER = APP_NAME + "[ORDER-DETAILS]";
     private final String FINAL_PAGE = APP_NAME + "[ORDER-RECEIVED]";
+    private final String LOGIN_USER = APP_NAME + "[LOGIN]";
 
 }
