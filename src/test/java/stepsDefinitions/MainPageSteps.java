@@ -20,4 +20,10 @@ public class MainPageSteps {
         logger.info("Checking website title");
         assertTrue("Website name is different", mainPage.verifyAppTextName());
     }
+
+    @Given("User clicks {}")
+    public void clickOnCorrectNavigationBarElement(String userChoice) {
+        mainPage.clickOnCorrectNavigationBarElement(userChoice);
+    }
+
 }
