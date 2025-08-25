@@ -21,9 +21,8 @@ public class MainPageSteps {
         assertTrue("Website name is different", mainPage.verifyAppTextName());
     }
 
-    @Given("User clicks {}")
+    @Given("User clicks {} on header bar")
     public void clickOnCorrectNavigationBarElement(String userChoice) {
         mainPage.clickOnCorrectNavigationBarElement(userChoice);
     }
-
 }

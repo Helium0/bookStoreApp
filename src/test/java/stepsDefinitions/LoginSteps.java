@@ -7,8 +7,10 @@ import io.cucumber.java.en.When;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import pageobject.LoginPage;
+import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class LoginSteps {
 
@@ -28,8 +30,10 @@ public class LoginSteps {
 
     @Then("User couldn`t log in")
     public void ll() {
-        loginPage.ooo();
-        assertEquals()
-    }
-
+        Map<String,String> errors = loginPage.errorsHashMap();
+        assertFalse("No displayed errors", errors.isEmpty());
+        boolean hasUserNameError = errors.values().stream()
+                .anyMatch(error -> error.contains("Username is required."));
+        assertTrue("Expected error: Username is required. but received: " + errors, hasUserNameError);
+       }
 }
