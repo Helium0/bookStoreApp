@@ -6,9 +6,7 @@ import java.sql.SQLException;
 
 public interface StripeOrderDAO {
 
-    default Order deleteOrderById() {
-        return null;
-    }
+    Order deleteOrderById(String userOrderId) throws SQLException;
 
     Order getOrderById(String userOrderId) throws SQLException;
 }
