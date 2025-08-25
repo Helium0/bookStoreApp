@@ -13,7 +13,6 @@ Feature: User adds book and pay with card
     And User wants to pay with Mastercard
     And User fills card details and place order
     Then User successfully placed order
-    And Checks order in DB
-
+    And Order in DB should contains title: How to Do Chemical Tricks
 
 
