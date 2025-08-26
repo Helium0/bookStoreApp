@@ -1,5 +1,6 @@
 package pageobject;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import common.AppStructureNames;
 import org.apache.logging.log4j.LogManager;
@@ -17,6 +18,8 @@ public class LoginPage {
 
 
     private final SelenideElement logInButton = $(By.name("login"));
+    private final SelenideElement usernameOrEmailAddressInput = $(By.cssSelector("#username"));
+    private final SelenideElement passwordInput = $(By.cssSelector("#password"));
     private final SelenideElement loginErrorElement = $(By.xpath("//ul[@class='woocommerce-error']/li"));
 
     public void clickOnLogInButton() {
@@ -27,5 +30,10 @@ public class LoginPage {
         HashMap<String,String> myMap = new HashMap<>();
         myMap.put("Error", loginErrorElement.getText());
         return myMap;
+    }
+
+    public void provideLoginCredentials(String usernameOrEmail, String password) {
+        usernameOrEmailAddressInput.setValue(usernameOrEmail).shouldBe(Condition.visible);
+        passwordInput.setValue(password).shouldBe(Condition.visible);
     }
 }

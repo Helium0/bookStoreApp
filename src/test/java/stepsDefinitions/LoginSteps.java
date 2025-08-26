@@ -23,17 +23,27 @@ public class LoginSteps {
         logger.info("User doesn`t provide any data");
     }
 
+    @When("User provided credentials {} and {}")
+    public void provideLoginCredentials(String usernameOrEmail, String password) {
+        logger.info("User provides credentials");
+        loginPage.provideLoginCredentials(usernameOrEmail,password);
+    }
+
     @And("Clicks on Log in button")
-    public void ee() {
+    public void clickOnLogInButton() {
+        logger.info("User clicks on Log in button");
         loginPage.clickOnLogInButton();
     }
 
     @Then("User couldn`t log in")
-    public void ll() {
+    public void errorsHashMap() {
+        logger.info("Validate error message");
         Map<String,String> errors = loginPage.errorsHashMap();
         assertFalse("No displayed errors", errors.isEmpty());
         boolean hasUserNameError = errors.values().stream()
-                .anyMatch(error -> error.contains("Username is required."));
+                .anyMatch(error -> error.contains("Username is required.")
+                || error.contains("try your email address instead.")
+                || error.contains("Unknown email address"));
         assertTrue("Expected error: Username is required. but received: " + errors, hasUserNameError);
        }
 }
